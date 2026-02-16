@@ -1,11 +1,7 @@
 import {Request, Response} from "express";
 import Category from "../models/category.model";
 
-interface MulterRequest extends Request {
-  file?: Express.Multer.File;
-}
-
-export const createCategory = async (req: MulterRequest, res: Response): Promise<void> => {
+export const createCategory = async (req: Request, res: Response): Promise<void> => {
     try {
         const categoryData = req.body;
 
@@ -81,5 +77,6 @@ export const deleteCategory = async (req: Request, res: Response): Promise<void>
         res.status(500).json({message: "Error deleting category", error});
     }
 }
+
 
 
